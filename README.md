@@ -1,2 +1,2 @@
-# perilib-devices
-Structure and protocol definitions for all supported peripheral devices
+# perilib-definitions
+Structural definitions for all supported protocols and peripheral devices
