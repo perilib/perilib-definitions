@@ -38,7 +38,8 @@
     ],
     "protocols": [
         {
-            "name": "Bluetooth Low Energy (BLE1xx series)",
+            "id": "silabs-bgapi-ble-ble1xx",
+            "name": "Bluegiga Bluetooth Low Energy (BLE1xx series)",
             "type": "stream",
             "format": "binary",
             "token": "ble",
@@ -50,6 +51,114 @@
                 { "name": "method_id", "bits": "8" }
             ],
             "test_packet_start": "$packet.header.technology_type == 0",
+            "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
+            "packets": {
+                "commands": {
+                    "direction": "both",
+                    "token_out": "cmd",
+                    "token_in": "rsp"
+                },
+                "events": {
+                    "direction": "in",
+                    "token_in": "evt"
+                }
+            }
+        },
+        {
+            "id": "silabs-bgapi-dumo-bt121",
+            "name": "Bluegiga Bluetooth Smart Ready (BT121)",
+            "type": "stream",
+            "format": "binary",
+            "token": "dumo",
+            "header": [
+                { "name": "message_type", "bits": "1" },
+                { "name": "technology_type", "bits": "4" },
+                { "name": "payload_length", "bits": "11" },
+                { "name": "group_id", "bits": "8" },
+                { "name": "method_id", "bits": "8" }
+            ],
+            "test_packet_start": "$packet.header.technology_type == 4",
+            "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
+            "packets": {
+                "commands": {
+                    "direction": "both",
+                    "token_out": "cmd",
+                    "token_in": "rsp"
+                },
+                "events": {
+                    "direction": "in",
+                    "token_in": "evt"
+                }
+            }
+        },
+        {
+            "id": "silabs-bgapi-ble-gecko",
+            "name": "Silicon Labs Blue Gecko Bluetooth Low Energy (BGMxxx series)",
+            "type": "stream",
+            "format": "binary",
+            "token": "gecko",
+            "header": [
+                { "name": "message_type", "bits": "1" },
+                { "name": "technology_type", "bits": "4" },
+                { "name": "payload_length", "bits": "11" },
+                { "name": "group_id", "bits": "8" },
+                { "name": "method_id", "bits": "8" }
+            ],
+            "test_packet_start": "$packet.header.technology_type == 0",
+            "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
+            "packets": {
+                "commands": {
+                    "direction": "both",
+                    "token_out": "cmd",
+                    "token_in": "rsp"
+                },
+                "events": {
+                    "direction": "in",
+                    "token_in": "evt"
+                }
+            }
+        },
+        {
+            "id": "silabs-bgapi-wifi-wf121",
+            "name": "Bluegiga Wi-Fi (WF121)",
+            "type": "stream",
+            "format": "binary",
+            "token": "wifi",
+            "header": [
+                { "name": "message_type", "bits": "1" },
+                { "name": "technology_type", "bits": "4" },
+                { "name": "payload_length", "bits": "11" },
+                { "name": "group_id", "bits": "8" },
+                { "name": "method_id", "bits": "8" }
+            ],
+            "test_packet_start": "$packet.header.technology_type == 1",
+            "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
+            "packets": {
+                "commands": {
+                    "direction": "both",
+                    "token_out": "cmd",
+                    "token_in": "rsp"
+                },
+                "events": {
+                    "direction": "in",
+                    "token_in": "evt"
+                }
+            }
+        },
+        {
+            "id": "silabs-bgapi-wifi-wgm110",
+            "name": "Silicon Labs Wi-Fi (WGM110)",
+            "type": "stream",
+            "format": "binary",
+            "token": "wifi",
+            "header": [
+                { "name": "message_type", "bits": "1" },
+                { "name": "technology_type", "bits": "4" },
+                { "name": "payload_length", "bits": "11" },
+                { "name": "group_id", "bits": "8" },
+                { "name": "method_id", "bits": "8" }
+            ],
+            "test_packet_start": "$packet.header.technology_type == 1",
             "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
             "packets": {
                 "commands": {
