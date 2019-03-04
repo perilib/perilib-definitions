@@ -80,48 +80,6 @@
             }
         },
         {
-            "id": "silabs-bgapi-dumo-bt121",
-            "name": "Bluegiga Bluetooth Smart Ready (BT121)",
-            "type": "stream",
-            "format": "binary",
-            "token": "dumo",
-            "header": [
-                {
-                    "name": "message_type",
-                    "bits": "1"
-                },
-                {
-                    "name": "technology_type",
-                    "bits": "4"
-                },
-                {
-                    "name": "payload_length",
-                    "bits": "11"
-                },
-                {
-                    "name": "group_id",
-                    "bits": "8"
-                },
-                {
-                    "name": "method_id",
-                    "bits": "8"
-                }
-            ],
-            "test_packet_start": "$packet.header.technology_type == 4",
-            "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
-            "packets": {
-                "commands": {
-                    "direction": "both",
-                    "token_out": "cmd",
-                    "token_in": "rsp"
-                },
-                "events": {
-                    "direction": "in",
-                    "token_in": "evt"
-                }
-            }
-        },
-        {
             "id": "silabs-bgapi-ble-gecko",
             "name": "Silicon Labs Blue Gecko Bluetooth Low Energy (BGMxxx series)",
             "type": "stream",
@@ -150,6 +108,48 @@
                 }
             ],
             "test_packet_start": "$packet.header.technology_type == 0",
+            "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
+            "packets": {
+                "commands": {
+                    "direction": "both",
+                    "token_out": "cmd",
+                    "token_in": "rsp"
+                },
+                "events": {
+                    "direction": "in",
+                    "token_in": "evt"
+                }
+            }
+        },
+        {
+            "id": "silabs-bgapi-dumo-bt121",
+            "name": "Bluegiga Bluetooth Smart Ready (BT121)",
+            "type": "stream",
+            "format": "binary",
+            "token": "dumo",
+            "header": [
+                {
+                    "name": "message_type",
+                    "bits": "1"
+                },
+                {
+                    "name": "technology_type",
+                    "bits": "4"
+                },
+                {
+                    "name": "payload_length",
+                    "bits": "11"
+                },
+                {
+                    "name": "group_id",
+                    "bits": "8"
+                },
+                {
+                    "name": "method_id",
+                    "bits": "8"
+                }
+            ],
+            "test_packet_start": "$packet.header.technology_type == 4",
             "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
             "packets": {
                 "commands": {
