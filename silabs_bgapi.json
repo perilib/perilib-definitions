@@ -44,11 +44,26 @@
             "format": "binary",
             "token": "ble",
             "header": [
-                { "name": "message_type", "bits": "1" },
-                { "name": "technology_type", "bits": "4" },
-                { "name": "payload_length", "bits": "11" },
-                { "name": "group_id", "bits": "8" },
-                { "name": "method_id", "bits": "8" }
+                {
+                    "name": "message_type",
+                    "bits": "1"
+                },
+                {
+                    "name": "technology_type",
+                    "bits": "4"
+                },
+                {
+                    "name": "payload_length",
+                    "bits": "11"
+                },
+                {
+                    "name": "group_id",
+                    "bits": "8"
+                },
+                {
+                    "name": "method_id",
+                    "bits": "8"
+                }
             ],
             "test_packet_start": "$packet.header.technology_type == 0",
             "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
@@ -71,11 +86,26 @@
             "format": "binary",
             "token": "dumo",
             "header": [
-                { "name": "message_type", "bits": "1" },
-                { "name": "technology_type", "bits": "4" },
-                { "name": "payload_length", "bits": "11" },
-                { "name": "group_id", "bits": "8" },
-                { "name": "method_id", "bits": "8" }
+                {
+                    "name": "message_type",
+                    "bits": "1"
+                },
+                {
+                    "name": "technology_type",
+                    "bits": "4"
+                },
+                {
+                    "name": "payload_length",
+                    "bits": "11"
+                },
+                {
+                    "name": "group_id",
+                    "bits": "8"
+                },
+                {
+                    "name": "method_id",
+                    "bits": "8"
+                }
             ],
             "test_packet_start": "$packet.header.technology_type == 4",
             "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
@@ -98,11 +128,26 @@
             "format": "binary",
             "token": "gecko",
             "header": [
-                { "name": "message_type", "bits": "1" },
-                { "name": "technology_type", "bits": "4" },
-                { "name": "payload_length", "bits": "11" },
-                { "name": "group_id", "bits": "8" },
-                { "name": "method_id", "bits": "8" }
+                {
+                    "name": "message_type",
+                    "bits": "1"
+                },
+                {
+                    "name": "technology_type",
+                    "bits": "4"
+                },
+                {
+                    "name": "payload_length",
+                    "bits": "11"
+                },
+                {
+                    "name": "group_id",
+                    "bits": "8"
+                },
+                {
+                    "name": "method_id",
+                    "bits": "8"
+                }
             ],
             "test_packet_start": "$packet.header.technology_type == 0",
             "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
@@ -125,11 +170,26 @@
             "format": "binary",
             "token": "wifi",
             "header": [
-                { "name": "message_type", "bits": "1" },
-                { "name": "technology_type", "bits": "4" },
-                { "name": "payload_length", "bits": "11" },
-                { "name": "group_id", "bits": "8" },
-                { "name": "method_id", "bits": "8" }
+                {
+                    "name": "message_type",
+                    "bits": "1"
+                },
+                {
+                    "name": "technology_type",
+                    "bits": "4"
+                },
+                {
+                    "name": "payload_length",
+                    "bits": "11"
+                },
+                {
+                    "name": "group_id",
+                    "bits": "8"
+                },
+                {
+                    "name": "method_id",
+                    "bits": "8"
+                }
             ],
             "test_packet_start": "$packet.header.technology_type == 1",
             "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
@@ -152,11 +212,26 @@
             "format": "binary",
             "token": "wifi",
             "header": [
-                { "name": "message_type", "bits": "1" },
-                { "name": "technology_type", "bits": "4" },
-                { "name": "payload_length", "bits": "11" },
-                { "name": "group_id", "bits": "8" },
-                { "name": "method_id", "bits": "8" }
+                {
+                    "name": "message_type",
+                    "bits": "1"
+                },
+                {
+                    "name": "technology_type",
+                    "bits": "4"
+                },
+                {
+                    "name": "payload_length",
+                    "bits": "11"
+                },
+                {
+                    "name": "group_id",
+                    "bits": "8"
+                },
+                {
+                    "name": "method_id",
+                    "bits": "8"
+                }
             ],
             "test_packet_start": "$packet.header.technology_type == 1",
             "test_packet_complete": "$packet.length == $packet.header.payload_length + 4",
