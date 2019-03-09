@@ -1,0 +1,3143 @@
+{
+    "documents": [
+        {
+            "type": "reference",
+            "name": "EZ-Serial Firmware Platform",
+            "version": "1.1.14",
+            "date": "2019-03-08",
+            "url": "https://www.cypress.com/documentation/software-and-drivers/ez-serial-ez-ble-module-firmware-platform"
+        },
+        {
+            "type": "reference",
+            "name": "EZ-Serial Firmware Platform User Guide",
+            "version": "*E",
+            "date": "2018-12-18",
+            "url": "https://www.cypress.com/file/384521/download"
+        }
+    ],
+    "protocols": {
+        "cypress-ezserial": {
+            "name": "Cypress EZ-Serial BLE",
+            "type": "stream",
+            "format": "binary",
+            "token": "ezs",
+            "header": [
+                {
+                    "name": "message_type",
+                    "bits": "2"
+                },
+                {
+                    "name": "memory_scope",
+                    "bits": "2"
+                },
+                {
+                    "name": "RESERVED",
+                    "bits": "1"
+                }
+                {
+                    "name": "payload_length",
+                    "bits": "11"
+                },
+                {
+                    "name": "group_id",
+                    "bits": "8"
+                },
+                {
+                    "name": "method_id",
+                    "bits": "8"
+                }
+            ],
+            "test_packet_start": "($packet.header.message_type & 2) == 2",
+            "test_packet_complete": "$packet.length == $packet.header.payload_length + 5",
+            "packets": {
+                "commands": {
+                    "direction": "both",
+                    "token_out": "cmd",
+                    "token_in": "rsp",
+                    "1": {
+                        "name": "protocol",
+                        "1": {
+                            "name": "set_parse_mode",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "2": {
+                            "name": "get_parse_mode",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "set_echo_mode",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "4": {
+                            "name": "get_echo_mode",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                }
+                            ]
+                        }
+                    },
+                    "2": {
+                        "name": "system",
+                        "1": {
+                            "name": "ping",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "runtime",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "fraction",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "reboot",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "3": {
+                            "name": "dump",
+                            "command_args": [
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "length",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "4": {
+                            "name": "store_config",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "5": {
+                            "name": "factory_reset",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "6": {
+                            "name": "query_firmware_version",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "app",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "stack",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "protocol",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "hardware",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "7": {
+                            "name": "query_unique_id",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "id",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "8": {
+                            "name": "query_random_number",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "9": {
+                            "name": "aes_encrypt",
+                            "command_args": [
+                                {
+                                    "name": "in_struct",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "out",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "10": {
+                            "name": "aes_decrypt",
+                            "command_args": [
+                                {
+                                    "name": "in_struct",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "out",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "11": {
+                            "name": "write_user_data",
+                            "command_args": [
+                                {
+                                    "name": "offset",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "12": {
+                            "name": "read_user_data",
+                            "command_args": [
+                                {
+                                    "name": "offset",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "length",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "13": {
+                            "name": "set_bluetooth_address",
+                            "command_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "14": {
+                            "name": "get_bluetooth_address",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                }
+                            ]
+                        },
+                        "15": {
+                            "name": "set_eco_parameters",
+                            "command_args": [
+                                {
+                                    "name": "trim",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "16": {
+                            "name": "get_eco_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "trim",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "17": {
+                            "name": "set_wco_parameters",
+                            "command_args": [
+                                {
+                                    "name": "accuracy",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "18": {
+                            "name": "get_wco_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "accuracy",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "19": {
+                            "name": "set_sleep_parameters",
+                            "command_args": [
+                                {
+                                    "name": "level",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "20": {
+                            "name": "get_sleep_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "level",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "21": {
+                            "name": "set_tx_power",
+                            "command_args": [
+                                {
+                                    "name": "power",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "22": {
+                            "name": "get_tx_power",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "power",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "23": {
+                            "name": "set_transport",
+                            "command_args": [
+                                {
+                                    "name": "interface",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "24": {
+                            "name": "get_transport",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "interface",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "25": {
+                            "name": "set_uart_parameters",
+                            "command_args": [
+                                {
+                                    "name": "baud",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "autobaud",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "autocorrect",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "flow",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "databits",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "parity",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "stopbits",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "26": {
+                            "name": "get_uart_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "baud",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "autobaud",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "autocorrect",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "flow",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "databits",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "parity",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "stopbits",
+                                    "type": "uint8"
+                                }
+                            ]
+                        }
+                    },
+                    "3": {
+                        "name": "dfu",
+                        "1": {
+                            "name": "reboot",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        }
+                    },
+                    "4": {
+                        "name": "gap",
+                        "1": {
+                            "name": "connect",
+                            "command_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "slave_latency",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "supervision_timeout",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "scan_interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "scan_window",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "scan_timeout",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "cancel_connection",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "3": {
+                            "name": "update_conn_parameters",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "slave_latency",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "supervision_timeout",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "4": {
+                            "name": "send_connupdate_response",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "response",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "5": {
+                            "name": "disconnect",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "6": {
+                            "name": "add_whitelist_entry",
+                            "command_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "7": {
+                            "name": "delete_whitelist_entry",
+                            "command_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "8": {
+                            "name": "start_adv",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "channels",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "filter",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "timeout",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "9": {
+                            "name": "stop_adv",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "10": {
+                            "name": "start_scan",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "window",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "active",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "filter",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "nodupe",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "timeout",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "11": {
+                            "name": "stop_scan",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "12": {
+                            "name": "query_peer_address",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                },
+                                {
+                                    "name": "address_type",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "13": {
+                            "name": "query_rssi",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "rssi",
+                                    "type": "int8"
+                                }
+                            ]
+                        },
+                        "14": {
+                            "name": "query_whitelist",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "15": {
+                            "name": "set_device_name",
+                            "command_args": [
+                                {
+                                    "name": "name",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "16": {
+                            "name": "get_device_name",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "name",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "17": {
+                            "name": "set_device_appearance",
+                            "command_args": [
+                                {
+                                    "name": "appearance",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "18": {
+                            "name": "get_device_appearance",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "appearance",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "19": {
+                            "name": "set_adv_data",
+                            "command_args": [
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "20": {
+                            "name": "get_adv_data",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "21": {
+                            "name": "set_sr_data",
+                            "command_args": [
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "22": {
+                            "name": "get_sr_data",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "23": {
+                            "name": "set_adv_parameters",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "channels",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "filter",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "timeout",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "flags",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "24": {
+                            "name": "get_adv_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "channels",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "filter",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "timeout",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "flags",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "25": {
+                            "name": "set_scan_parameters",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "window",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "active",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "filter",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "nodupe",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "timeout",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "26": {
+                            "name": "get_scan_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "window",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "active",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "filter",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "nodupe",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "timeout",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "27": {
+                            "name": "set_conn_parameters",
+                            "command_args": [
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "slave_latency",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "supervision_timeout",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "scan_interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "scan_window",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "scan_timeout",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "28": {
+                            "name": "get_conn_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "slave_latency",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "supervision_timeout",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "scan_interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "scan_window",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "scan_timeout",
+                                    "type": "uint16"
+                                }
+                            ]
+                        }
+                    },
+                    "5": {
+                        "name": "gatts",
+                        "1": {
+                            "name": "create_attr",
+                            "command_args": [
+                                {
+                                    "name": "type",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "read_permissions",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "write_permissions",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "char_properties",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "length",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "longuint8a"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "valid",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "delete_attr",
+                            "command_args": [
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "next_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "valid",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "validate_db",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "valid",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "4": {
+                            "name": "store_db",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "5": {
+                            "name": "dump_db",
+                            "command_args": [
+                                {
+                                    "name": "include_fixed",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "6": {
+                            "name": "discover_services",
+                            "command_args": [
+                                {
+                                    "name": "begin",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "end",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "7": {
+                            "name": "discover_characteristics",
+                            "command_args": [
+                                {
+                                    "name": "begin",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "end",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "service",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "8": {
+                            "name": "discover_descriptors",
+                            "command_args": [
+                                {
+                                    "name": "begin",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "end",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "service",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "characteristic",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "9": {
+                            "name": "read_handle",
+                            "command_args": [
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "data",
+                                    "type": "longuint8a"
+                                }
+                            ]
+                        },
+                        "10": {
+                            "name": "write_handle",
+                            "command_args": [
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "longuint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "11": {
+                            "name": "notify_handle",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "12": {
+                            "name": "indicate_handle",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "13": {
+                            "name": "send_writereq_response",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "response",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "14": {
+                            "name": "set_parameters",
+                            "command_args": [
+                                {
+                                    "name": "flags",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "15": {
+                            "name": "get_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "flags",
+                                    "type": "uint8"
+                                }
+                            ]
+                        }
+                    },
+                    "6": {
+                        "name": "gattc",
+                        "1": {
+                            "name": "discover_services",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "begin",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "end",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "2": {
+                            "name": "discover_characteristics",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "begin",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "end",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "service",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "3": {
+                            "name": "discover_descriptors",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "begin",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "end",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "service",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "characteristic",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "4": {
+                            "name": "read_handle",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "5": {
+                            "name": "write_handle",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "longuint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "6": {
+                            "name": "confirm_indication",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "7": {
+                            "name": "set_parameters",
+                            "command_args": [
+                                {
+                                    "name": "flags",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "8": {
+                            "name": "get_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "flags",
+                                    "type": "uint8"
+                                }
+                            ]
+                        }
+                    },
+                    "7": {
+                        "name": "smp",
+                        "1": {
+                            "name": "query_bonds",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "delete_bond",
+                            "command_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "count",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "pair",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "bonding",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "keysize",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "pairprop",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "4": {
+                            "name": "query_random_address",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                }
+                            ]
+                        },
+                        "5": {
+                            "name": "send_pairreq_response",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "response",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "6": {
+                            "name": "send_passkeyreq_response",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "passkey",
+                                    "type": "uint32"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "7": {
+                            "name": "generate_oob_data",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "key",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "8": {
+                            "name": "clear_oob_data",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "9": {
+                            "name": "set_privacy_mode",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "10": {
+                            "name": "get_privacy_mode",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "11": {
+                            "name": "set_security_parameters",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "bonding",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "keysize",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "pairprop",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "io",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "flags",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "12": {
+                            "name": "get_security_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "bonding",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "keysize",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "pairprop",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "io",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "flags",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "13": {
+                            "name": "set_fixed_passkey",
+                            "command_args": [
+                                {
+                                    "name": "passkey",
+                                    "type": "uint32"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "14": {
+                            "name": "get_fixed_passkey",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "passkey",
+                                    "type": "uint32"
+                                }
+                            ]
+                        }
+                    },
+                    "8": {
+                        "name": "l2cap",
+                        "1": {
+                            "name": "connect",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "remote",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "local",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "mtu",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "mps",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "credits",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "2": {
+                            "name": "disconnect",
+                            "command_args": [
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "3": {
+                            "name": "register_psm",
+                            "command_args": [
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "watermark",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "4": {
+                            "name": "send_connreq_response",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "response",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "mtu",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "mps",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "credits",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "5": {
+                            "name": "send_credits",
+                            "command_args": [
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "credits",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "6": {
+                            "name": "send_data",
+                            "command_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "longuint8a"
+                                }
+                            ],
+                            "response_args": []
+                        }
+                    },
+                    "9": {
+                        "name": "gpio",
+                        "1": {
+                            "name": "query_logic",
+                            "command_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "logic",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "query_adc",
+                            "command_args": [
+                                {
+                                    "name": "channel",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "reference",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "value",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "uvolts",
+                                    "type": "uint32"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "set_function",
+                            "command_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "mask",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "drive",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "affected",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "4": {
+                            "name": "get_function",
+                            "command_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "drive",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "5": {
+                            "name": "set_drive",
+                            "command_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "mask",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "direction",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "pulldrive_down",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "pulldrive_up",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "analog",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "affected",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "6": {
+                            "name": "get_drive",
+                            "command_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "direction",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "pulldrive_down",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "pulldrive_up",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "analog",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "7": {
+                            "name": "set_logic",
+                            "command_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "mask",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "logic",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "affected",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "8": {
+                            "name": "get_logic",
+                            "command_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "logic",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "9": {
+                            "name": "set_interrupt_mode",
+                            "command_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "mask",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "rising",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "falling",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "affected",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "10": {
+                            "name": "get_interrupt_mode",
+                            "command_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "rising",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "falling",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "11": {
+                            "name": "set_pwm_mode",
+                            "command_args": [
+                                {
+                                    "name": "channel",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "divider",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "prescaler",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "period",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "compare",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "12": {
+                            "name": "get_pwm_mode",
+                            "command_args": [
+                                {
+                                    "name": "channel",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "divider",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "prescaler",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "period",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "compare",
+                                    "type": "uint16"
+                                }
+                            ]
+                        }
+                    },
+                    "10": {
+                        "name": "p_cyspp",
+                        "1": {
+                            "name": "check",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "2": {
+                            "name": "start",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "3": {
+                            "name": "set_parameters",
+                            "command_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "role",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "company",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "local_key",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "remote_key",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "remote_mask",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "sleep_level",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "server_security",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "client_flags",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "4": {
+                            "name": "get_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "role",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "company",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "local_key",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "remote_key",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "remote_mask",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "sleep_level",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "server_security",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "client_flags",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "5": {
+                            "name": "set_client_handles",
+                            "command_args": [
+                                {
+                                    "name": "data_value_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data_cccd_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "rxflow_value_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "rxflow_cccd_handle",
+                                    "type": "uint16"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "6": {
+                            "name": "get_client_handles",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "data_value_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data_cccd_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "rxflow_value_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "rxflow_cccd_handle",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "7": {
+                            "name": "set_packetization",
+                            "command_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "wait",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "length",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "eop",
+                                    "type": "uint8"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "8": {
+                            "name": "get_packetization",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "wait",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "length",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "eop",
+                                    "type": "uint8"
+                                }
+                            ]
+                        }
+                    },
+                    "11": {
+                        "name": "p_cycommand",
+                        "1": {
+                            "name": "set_parameters",
+                            "command_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "hostout",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "timeout",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "safemode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "challenge",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "security",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "secret",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "2": {
+                            "name": "get_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "hostout",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "timeout",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "safemode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "challenge",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "security",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "secret",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        }
+                    },
+                    "12": {
+                        "name": "p_ibeacon",
+                        "1": {
+                            "name": "set_parameters",
+                            "command_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "company",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "major",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "minor",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "uuid",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "2": {
+                            "name": "get_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "company",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "major",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "minor",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "uuid",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        }
+                    },
+                    "13": {
+                        "name": "p_eddystone",
+                        "1": {
+                            "name": "set_parameters",
+                            "command_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "2": {
+                            "name": "get_parameters",
+                            "command_args": [],
+                            "response_args": [
+                                {
+                                    "name": "enable",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "events": {
+                    "direction": "in",
+                    "token_in": "evt",
+                    "1": {
+                        "name": "protocol"
+                    },
+                    "2": {
+                        "name": "system",
+                        "1": {
+                            "name": "boot",
+                            "event_args": [
+                                {
+                                    "name": "app",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "stack",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "protocol",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "hardware",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "cause",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "error",
+                            "event_args": [
+                                {
+                                    "name": "error",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "factory_reset_complete",
+                            "event_args": []
+                        },
+                        "4": {
+                            "name": "factory_test_entered",
+                            "event_args": [
+                                {
+                                    "name": "app",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "stack",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "protocol",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "hardware",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "cause",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "5": {
+                            "name": "dump_blob",
+                            "event_args": [
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "offset",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        }
+                    },
+                    "3": {
+                        "name": "dfu",
+                        "1": {
+                            "name": "boot",
+                            "event_args": [
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "valid",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "bootloader",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "hardware",
+                                    "type": "uint8"
+                                }
+                            ]
+                        }
+                    },
+                    "4": {
+                        "name": "gap",
+                        "1": {
+                            "name": "whitelist_entry",
+                            "event_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "adv_state_changed",
+                            "event_args": [
+                                {
+                                    "name": "state",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "reason",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "scan_state_changed",
+                            "event_args": [
+                                {
+                                    "name": "state",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "reason",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "4": {
+                            "name": "scan_result",
+                            "event_args": [
+                                {
+                                    "name": "result_type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                },
+                                {
+                                    "name": "address_type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "rssi",
+                                    "type": "int8"
+                                },
+                                {
+                                    "name": "bond",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "5": {
+                            "name": "connected",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "slave_latency",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "supervision_timeout",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "bond",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "6": {
+                            "name": "disconnected",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "reason",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "7": {
+                            "name": "connection_update_requested",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval_min",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "interval_max",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "slave_latency",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "supervision_timeout",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "8": {
+                            "name": "connection_updated",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "interval",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "slave_latency",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "supervision_timeout",
+                                    "type": "uint16"
+                                }
+                            ]
+                        }
+                    },
+                    "5": {
+                        "name": "gatts",
+                        "1": {
+                            "name": "discover_result",
+                            "event_args": [
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "attr_handle_rel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "properties",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "uuid",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "data_written",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "longuint8a"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "indication_confirmed",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "4": {
+                            "name": "db_entry_blob",
+                            "event_args": [
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "read_permissions",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "write_permissions",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "char_properties",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "length",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "longuint8a"
+                                }
+                            ]
+                        }
+                    },
+                    "6": {
+                        "name": "gattc",
+                        "1": {
+                            "name": "discover_result",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "attr_handle_rel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "properties",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "uuid",
+                                    "type": "uint8a"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "remote_procedure_complete",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "result",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "data_received",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "source",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "longuint8a"
+                                }
+                            ]
+                        },
+                        "4": {
+                            "name": "write_response",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "attr_handle",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "result",
+                                    "type": "uint16"
+                                }
+                            ]
+                        }
+                    },
+                    "7": {
+                        "name": "smp",
+                        "1": {
+                            "name": "bond_entry",
+                            "event_args": [
+                                {
+                                    "name": "handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "address",
+                                    "type": "macaddr"
+                                },
+                                {
+                                    "name": "type",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "pairing_requested",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "mode",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "bonding",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "keysize",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "pairprop",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "pairing_result",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "result",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "4": {
+                            "name": "encryption_status",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "status",
+                                    "type": "uint8"
+                                }
+                            ]
+                        },
+                        "5": {
+                            "name": "passkey_display_requested",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "passkey",
+                                    "type": "uint32"
+                                }
+                            ]
+                        },
+                        "6": {
+                            "name": "passkey_entry_requested",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                }
+                            ]
+                        }
+                    },
+                    "8": {
+                        "name": "l2cap",
+                        "1": {
+                            "name": "connection_requested",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "local",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "mtu",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "mps",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "credits",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "2": {
+                            "name": "connection_response",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "response",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "mtu",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "mps",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "credits",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "3": {
+                            "name": "data_received",
+                            "event_args": [
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "longuint8a"
+                                }
+                            ]
+                        },
+                        "4": {
+                            "name": "disconnected",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "reason",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "5": {
+                            "name": "rx_credits_low",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "credits",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "6": {
+                            "name": "tx_credits_received",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "credits",
+                                    "type": "uint16"
+                                }
+                            ]
+                        },
+                        "7": {
+                            "name": "command_rejected",
+                            "event_args": [
+                                {
+                                    "name": "conn_handle",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "channel",
+                                    "type": "uint16"
+                                },
+                                {
+                                    "name": "reason",
+                                    "type": "uint16"
+                                }
+                            ]
+                        }
+                    },
+                    "9": {
+                        "name": "gpio",
+                        "1": {
+                            "name": "interrupt",
+                            "event_args": [
+                                {
+                                    "name": "port",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "trigger",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "logic",
+                                    "type": "uint8"
+                                },
+                                {
+                                    "name": "runtime",
+                                    "type": "uint32"
+                                },
+                                {
+                                    "name": "fraction",
+                                    "type": "uint16"
+                                }
+                            ]
+                        }
+                    },
+                    "10": {
+                        "name": "p_cyspp",
+                        "1": {
+                            "name": "status",
+                            "event_args": [
+                                {
+                                    "name": "status",
+                                    "type": "uint8"
+                                }
+                            ]
+                        }
+                    },
+                    "11": {
+                        "name": "p_cycommand",
+                        "1": {
+                            "name": "status",
+                            "event_args": [
+                                {
+                                    "name": "status",
+                                    "type": "uint8"
+                                }
+                            ]
+                        }
+                    },
+                    "12": {
+                        "name": "p_ibeacon"
+                    },
+                    "13": {
+                        "name": "p_eddystone"
+                    }
+                }
+            }
+        }
+    }
+}
