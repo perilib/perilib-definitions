@@ -1,0 +1,36 @@
+{
+    "documents": [
+        {
+            "type": "reference",
+            "name": "Bluetooth Smart Software API Reference Manual for BLE v1.7 API Documentation (BLE1xx SDK v1.7.0-142)",
+            "version": "3.7",
+            "date": "2017-04-06",
+            "url": "https://www.silabs.com/documents/login/user-guides/UG218.pdf"
+        }
+    ],
+    "protocols": {
+        "silabs-iwrap": {
+            "name": "Silicon Labs Bluetooth Classic iWRAP (WT11, WT12, WT32, WT41 series)",
+            "type": "stream",
+            "format": "text",
+            "token": "iwrap",
+            "test_packet_complete": "$packet.data[-1] == 10",
+            "packets": {
+                "commands": {
+                    "direction": "both",
+                    "token_out": "cmd",
+                    "token_in": "rsp"
+                },
+                "events": {
+                    "direction": "in",
+                    "token_in": "evt"
+                }
+            }
+        },
+        "silabs-iwrap-mux": {
+            "template": "silabs-iwrap",
+            "test_packet_start": "false",
+            "test_packet_complete": "false"
+        }
+    }
+}
