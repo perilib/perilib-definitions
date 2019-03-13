@@ -19,7 +19,77 @@
                 "commands": {
                     "direction": "both",
                     "token_out": "cmd",
-                    "token_in": "rsp"
+                    "token_in": "rsp",
+                    "set": {
+                        "bt": {
+                        },
+                        "control": {
+                        }
+                    },
+                    "aptx": {
+                    },
+                    "aptxll": {
+                    },
+                    "auth": {
+                    },
+                    "ber": {
+                    },
+                    "call": {
+                    },
+                    "clock": {
+                    },
+                    "close": {
+                    },
+                    "connauth": {
+                    },
+                    "connect": {
+                    },
+                    "cvc": {
+                    },
+                    "echo": {
+                    },
+                    "i2c": {
+                    },
+                    "ic": {
+                    },
+                    "ident": {
+                    },
+                    "inquiry": {
+                    },
+                    "kill": {
+                    },
+                    "l2cap": {
+                    },
+                    "list": {
+                    },
+                    "loopback": {
+                    },
+                    "name": {
+                    },
+                    "pair": {
+                    },
+                    "ping": {
+                    },
+                    "rfcomm": {
+                    },
+                    "rssi": {
+                    },
+                    "sco_enable": {
+                    },
+                    "sco_open": {
+                    },
+                    "sdp": {
+                    },
+                    "sdp_add": {
+                    },
+                    "select": {
+                    },
+                    "test": {
+                    },
+                    "testmode": {
+                    },
+                    "txpower": {
+                    },
                 },
                 "events": {
                     "direction": "in",
