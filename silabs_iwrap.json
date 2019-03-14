@@ -20,12 +20,6 @@
                     "direction": "both",
                     "token_out": "cmd",
                     "token_in": "rsp",
-                    "set": {
-                        "bt": {
-                        },
-                        "control": {
-                        }
-                    },
                     "aptx": {
                     },
                     "aptxll": {
@@ -90,6 +84,148 @@
                     },
                     "txpower": {
                     },
+                    "@": {
+                    },
+                    "aio": {
+                    },
+                    "a2dp": {
+                    },
+                    "at": {
+                    },
+                    "battery": {
+                    },
+                    "bcsp_enable": {
+                    },
+                    "blink": {
+                    },
+                    "boot": {
+                    },
+                    "bypassuart": {
+                    },
+                    "defrag": {
+                    },
+                    "delay": {
+                    },
+                    "help": {
+                    },
+                    "hid_get": {
+                    },
+                    "hid_set": {
+                    },
+                    "info": {
+                    },
+                    "pio": {
+                    },
+                    "reset": {
+                    },
+                    "set": {
+                    },
+                    "set_bt": {
+                    },
+                    "set_control": {
+                    },
+                    "set_devkit": {
+                    },
+                    "set_reset": {
+                    },
+                    "sleep": {
+                    },
+                    "temp": {
+                    },
+                    "volume": {
+                    },
+                    "set_bt_auth": {
+                    },
+                    "set_bt_bdaddr": {
+                    },
+                    "set_bt_class": {
+                    },
+                    "set_bt_filter": {
+                    },
+                    "set_bt_ident": {
+                    },
+                    "set_bt_lap": {
+                    },
+                    "set_bt_mtu": {
+                    },
+                    "set_bt_name": {
+                    },
+                    "set_bt_opp": {
+                    },
+                    "set_bt_pagemode": {
+                    },
+                    "set_bt_pair": {
+                    },
+                    "set_bt_paircount": {
+                    },
+                    "set_bt_power": {
+                    },
+                    "set_bt_role": {
+                    },
+                    "set_bt_sco": {
+                    },
+                    "set_bt_sniff": {
+                    },
+                    "set_bt_ssp": {
+                    },
+                    "set_control_audio": {
+                    },
+                    "set_control_autocall": {
+                    },
+                    "set_control_autopair": {
+                    },
+                    "set_control_battery": {
+                    },
+                    "set_control_baud": {
+                    },
+                    "set_control_bind": {
+                    },
+                    "set_control_cd": {
+                    },
+                    "set_control_codec": {
+                    },
+                    "set_control_config": {
+                    },
+                    "set_control_echo": {
+                    },
+                    "set_control_gain": {
+                    },
+                    "set_control_init": {
+                    },
+                    "set_control_micbias": {
+                    },
+                    "set_control_msc": {
+                    },
+                    "set_control_mux": {
+                    },
+                    "set_control_pcm": {
+                    },
+                    "set_control_pio": {
+                    },
+                    "set_control_preamp": {
+                    },
+                    "set_control_ringtone": {
+                    },
+                    "set_control_ready": {
+                    },
+                    "set_control_volscale": {
+                    },
+                    "set_control_vregen": {
+                    },
+                    "set_link_active": {
+                    },
+                    "set_link_master": {
+                    },
+                    "set_link_msc": {
+                    },
+                    "set_link_park": {
+                    },
+                    "set_link_select": {
+                    },
+                    "set_link_slave": {
+                    },
+                    "set_link_sniff": {
+                    }
                 },
                 "events": {
                     "direction": "in",
