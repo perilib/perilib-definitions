@@ -33,7 +33,7 @@
                 {
                     "name": "RESERVED",
                     "bits": "1"
-                }
+                },
                 {
                     "name": "payload_length",
                     "bits": "11"
