@@ -64,7 +64,9 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "New parse mode"
+                                        "shortdesc": "New parse mode",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": []
@@ -88,7 +90,9 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "New UART echo mode"
+                                        "shortdesc": "New UART echo mode",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": []
@@ -138,7 +142,9 @@
                                         "name": "type",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Type of information to dump"
+                                        "shortdesc": "Type of information to dump",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     }
                                 ],
                                 "response_args": [
@@ -259,7 +265,9 @@
                                         "name": "offset",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Offset (0-255)"
+                                        "shortdesc": "Offset (0-255)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "data",
@@ -277,13 +285,17 @@
                                         "name": "offset",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Offset (0-255)"
+                                        "shortdesc": "Offset (0-255)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "length",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Number of bytes to read (1-32)"
+                                        "shortdesc": "Number of bytes to read (1-32)",
+                                        "minimum": 1,
+                                        "maximum": 32
                                     }
                                 ],
                                 "response_args": [
@@ -326,7 +338,9 @@
                                         "name": "trim",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "New ECO trim value"
+                                        "shortdesc": "New ECO trim value",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -350,7 +364,9 @@
                                         "name": "accuracy",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "New WCO accuracy value"
+                                        "shortdesc": "New WCO accuracy value",
+                                        "minimum": 0,
+                                        "maximum": 7
                                     }
                                 ],
                                 "response_args": []
@@ -374,7 +390,9 @@
                                         "name": "level",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "New allowed sleep level"
+                                        "shortdesc": "New allowed sleep level",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     }
                                 ],
                                 "response_args": []
@@ -398,7 +416,9 @@
                                         "name": "power",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "New transmit power"
+                                        "shortdesc": "New transmit power",
+                                        "minimum": 1,
+                                        "maximum": 8
                                     }
                                 ],
                                 "response_args": []
@@ -422,7 +442,9 @@
                                         "name": "interface",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "New host transport interface"
+                                        "shortdesc": "New host transport interface",
+                                        "minimum": 1,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": []
@@ -446,43 +468,57 @@
                                         "name": "baud",
                                         "type": "uint32",
                                         "format": "decimal",
-                                        "shortdesc": "UART baud rate"
+                                        "shortdesc": "UART baud rate",
+                                        "minimum": 300,
+                                        "maximum": 2000000
                                     },
                                     {
                                         "name": "autobaud",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Auto-detect UART baud rate at boot"
+                                        "shortdesc": "Auto-detect UART baud rate at boot",
+                                        "minimum": 0,
+                                        "maximum": 0
                                     },
                                     {
                                         "name": "autocorrect",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Autocorrect UART baud rate (small internal clock adjustment)"
+                                        "shortdesc": "Autocorrect UART baud rate (small internal clock adjustment)",
+                                        "minimum": 0,
+                                        "maximum": 0
                                     },
                                     {
                                         "name": "flow",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Flow control setting"
+                                        "shortdesc": "Flow control setting",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "databits",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "UART data bits"
+                                        "shortdesc": "UART data bits",
+                                        "minimum": 7,
+                                        "maximum": 9
                                     },
                                     {
                                         "name": "parity",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "UART parity"
+                                        "shortdesc": "UART parity",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "stopbits",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "UART stop bits"
+                                        "shortdesc": "UART stop bits",
+                                        "minimum": 1,
+                                        "maximum": 7
                                     }
                                 ],
                                 "response_args": []
@@ -545,7 +581,9 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "DFU mode"
+                                        "shortdesc": "DFU mode",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     }
                                 ],
                                 "response_args": []
@@ -566,43 +604,57 @@
                                         "name": "type",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Address type"
+                                        "shortdesc": "Address type",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Connection interval"
+                                        "shortdesc": "Connection interval",
+                                        "minimum": 6,
+                                        "maximum": 3200
                                     },
                                     {
                                         "name": "slave_latency",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Slave latency"
+                                        "shortdesc": "Slave latency",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "supervision_timeout",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Supervision timeout"
+                                        "shortdesc": "Supervision timeout",
+                                        "minimum": 10,
+                                        "maximum": 3200
                                     },
                                     {
                                         "name": "scan_interval",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan interval"
+                                        "shortdesc": "Scan interval",
+                                        "minimum": 4,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "scan_window",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan window"
+                                        "shortdesc": "Scan window",
+                                        "minimum": 4,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "scan_timeout",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan timeout"
+                                        "shortdesc": "Scan timeout",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": [
@@ -626,25 +678,33 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Handle of connection to update"
+                                        "shortdesc": "Handle of connection to update",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Connection interval"
+                                        "shortdesc": "Connection interval",
+                                        "minimum": 6,
+                                        "maximum": 3200
                                     },
                                     {
                                         "name": "slave_latency",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Slave latency"
+                                        "shortdesc": "Slave latency",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "supervision_timeout",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Supervision timeout"
+                                        "shortdesc": "Supervision timeout",
+                                        "minimum": 10,
+                                        "maximum": 3200
                                     }
                                 ],
                                 "response_args": []
@@ -656,13 +716,17 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Handle of connection to send response for"
+                                        "shortdesc": "Handle of connection to send response for",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "response",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Response"
+                                        "shortdesc": "Response",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": []
@@ -674,7 +738,9 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Handle of connection to disconnect"
+                                        "shortdesc": "Handle of connection to disconnect",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     }
                                 ],
                                 "response_args": []
@@ -692,7 +758,9 @@
                                         "name": "type",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Address type"
+                                        "shortdesc": "Address type",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": [
@@ -717,7 +785,9 @@
                                         "name": "type",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Address type"
+                                        "shortdesc": "Address type",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": [
@@ -736,37 +806,49 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Discovery mode"
+                                        "shortdesc": "Discovery mode",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "type",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement type"
+                                        "shortdesc": "Advertisement type",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement interval"
+                                        "shortdesc": "Advertisement interval",
+                                        "minimum": 32,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "channels",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement channel bitmask (3 bits)"
+                                        "shortdesc": "Advertisement channel bitmask (3 bits)",
+                                        "minimum": 1,
+                                        "maximum": 7
                                     },
                                     {
                                         "name": "filter",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement filter policy"
+                                        "shortdesc": "Advertisement filter policy",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "timeout",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement timeout"
+                                        "shortdesc": "Advertisement timeout",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -783,43 +865,57 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Discovery mode"
+                                        "shortdesc": "Discovery mode",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan interval"
+                                        "shortdesc": "Scan interval",
+                                        "minimum": 4,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "window",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan window"
+                                        "shortdesc": "Scan window",
+                                        "minimum": 4,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "active",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Active scanning"
+                                        "shortdesc": "Active scanning",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "filter",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Whitelist filter policy"
+                                        "shortdesc": "Whitelist filter policy",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "nodupe",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Duplicate filter policy"
+                                        "shortdesc": "Duplicate filter policy",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "timeout",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan timeout"
+                                        "shortdesc": "Scan timeout",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -836,7 +932,9 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Handle of connection for which to query remote peer address"
+                                        "shortdesc": "Handle of connection for which to query remote peer address",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     }
                                 ],
                                 "response_args": [
@@ -861,7 +959,9 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Handle of connection for which to query signal strength"
+                                        "shortdesc": "Handle of connection for which to query signal strength",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     }
                                 ],
                                 "response_args": [
@@ -916,7 +1016,9 @@
                                         "name": "appearance",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "New device appearance value"
+                                        "shortdesc": "New device appearance value",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -988,43 +1090,57 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Discoverable mode"
+                                        "shortdesc": "Discoverable mode",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "type",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement type"
+                                        "shortdesc": "Advertisement type",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement interval"
+                                        "shortdesc": "Advertisement interval",
+                                        "minimum": 32,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "channels",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement channel bitmask (3 bits)"
+                                        "shortdesc": "Advertisement channel bitmask (3 bits)",
+                                        "minimum": 1,
+                                        "maximum": 7
                                     },
                                     {
                                         "name": "filter",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement filter policy"
+                                        "shortdesc": "Advertisement filter policy",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "timeout",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement timeout"
+                                        "shortdesc": "Advertisement timeout",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "flags",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Advertisement behavior flags"
+                                        "shortdesc": "Advertisement behavior flags",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     }
                                 ],
                                 "response_args": []
@@ -1084,43 +1200,57 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Discovery mode"
+                                        "shortdesc": "Discovery mode",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan interval"
+                                        "shortdesc": "Scan interval",
+                                        "minimum": 4,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "window",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan window"
+                                        "shortdesc": "Scan window",
+                                        "minimum": 4,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "active",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Active scanning"
+                                        "shortdesc": "Active scanning",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "filter",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Whitelist filter policy"
+                                        "shortdesc": "Whitelist filter policy",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "nodupe",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Duplicate filter policy"
+                                        "shortdesc": "Duplicate filter policy",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "timeout",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan timeout"
+                                        "shortdesc": "Scan timeout",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -1180,37 +1310,49 @@
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Connection interval"
+                                        "shortdesc": "Connection interval",
+                                        "minimum": 6,
+                                        "maximum": 3200
                                     },
                                     {
                                         "name": "slave_latency",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Slave latency"
+                                        "shortdesc": "Slave latency",
+                                        "minimum": 0,
+                                        "maximum": 3200
                                     },
                                     {
                                         "name": "supervision_timeout",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Supervision timeout"
+                                        "shortdesc": "Supervision timeout",
+                                        "minimum": 10,
+                                        "maximum": 3200
                                     },
                                     {
                                         "name": "scan_interval",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan interval"
+                                        "shortdesc": "Scan interval",
+                                        "minimum": 4,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "scan_window",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan window"
+                                        "shortdesc": "Scan window",
+                                        "minimum": 4,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "scan_timeout",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Scan timeout"
+                                        "shortdesc": "Scan timeout",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -1267,31 +1409,41 @@
                                         "name": "type",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Attribute type"
+                                        "shortdesc": "Attribute type",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "read_permissions",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Read permissions"
+                                        "shortdesc": "Read permissions",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "write_permissions",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Write permissions"
+                                        "shortdesc": "Write permissions",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "char_properties",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Characteristic properties"
+                                        "shortdesc": "Characteristic properties",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "length",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Maximum length"
+                                        "shortdesc": "Maximum length",
+                                        "minimum": 0,
+                                        "maximum": 512
                                     },
                                     {
                                         "name": "data",
@@ -1322,7 +1474,9 @@
                                         "name": "attr_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Attribute handle from which to begin removal"
+                                        "shortdesc": "Attribute handle from which to begin removal",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": [
@@ -1370,7 +1524,9 @@
                                         "name": "include_fixed",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Whether to include non-modifiable fixed attributes"
+                                        "shortdesc": "Whether to include non-modifiable fixed attributes",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": [
@@ -1389,13 +1545,17 @@
                                         "name": "begin",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to begin searching"
+                                        "shortdesc": "Handle to begin searching",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "end",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to end searching (inclusive)"
+                                        "shortdesc": "Handle to end searching (inclusive)",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": [
@@ -1414,19 +1574,25 @@
                                         "name": "begin",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to begin searching"
+                                        "shortdesc": "Handle to begin searching",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "end",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to end searching (inclusive)"
+                                        "shortdesc": "Handle to end searching (inclusive)",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "service",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Service UUID filter (0 for all)"
+                                        "shortdesc": "Service UUID filter (0 for all)",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": [
@@ -1445,25 +1611,33 @@
                                         "name": "begin",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to begin searching"
+                                        "shortdesc": "Handle to begin searching",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "end",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to end searching (inclusive)"
+                                        "shortdesc": "Handle to end searching (inclusive)",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "service",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Service UUID filter (0 for all)"
+                                        "shortdesc": "Service UUID filter (0 for all)",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "characteristic",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Characteristic UUID filter (0 for all)"
+                                        "shortdesc": "Characteristic UUID filter (0 for all)",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": [
@@ -1482,7 +1656,9 @@
                                         "name": "attr_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to read value from"
+                                        "shortdesc": "Handle to read value from",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": [
@@ -1501,7 +1677,9 @@
                                         "name": "attr_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to write new value to"
+                                        "shortdesc": "Handle to write new value to",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "data",
@@ -1519,13 +1697,17 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Handle to write new value to"
+                                        "shortdesc": "Handle to write new value to",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "attr_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Attribute handle to push data through"
+                                        "shortdesc": "Attribute handle to push data through",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "data",
@@ -1543,13 +1725,17 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Handle to write new value to"
+                                        "shortdesc": "Handle to write new value to",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "attr_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Attribute handle to push data through"
+                                        "shortdesc": "Attribute handle to push data through",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "data",
@@ -1567,13 +1753,17 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle to use for response"
+                                        "shortdesc": "Connection handle to use for response",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "response",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Response"
+                                        "shortdesc": "Response",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     }
                                 ],
                                 "response_args": []
@@ -1585,7 +1775,9 @@
                                         "name": "flags",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "GATT server behavior flags"
+                                        "shortdesc": "GATT server behavior flags",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": []
@@ -1612,19 +1804,25 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "begin",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to begin searching"
+                                        "shortdesc": "Handle to begin searching",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "end",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to end searching (inclusive)"
+                                        "shortdesc": "Handle to end searching (inclusive)",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -1636,25 +1834,33 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "begin",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to begin searching"
+                                        "shortdesc": "Handle to begin searching",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "end",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to end searching (inclusive)"
+                                        "shortdesc": "Handle to end searching (inclusive)",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "service",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Service UUID filter (0 for all)"
+                                        "shortdesc": "Service UUID filter (0 for all)",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -1666,31 +1872,41 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "begin",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to begin searching"
+                                        "shortdesc": "Handle to begin searching",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "end",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Handle to end searching (inclusive)"
+                                        "shortdesc": "Handle to end searching (inclusive)",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "service",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Service UUID filter (0 for all)"
+                                        "shortdesc": "Service UUID filter (0 for all)",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "characteristic",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Characteristic UUID filter (0 for all)"
+                                        "shortdesc": "Characteristic UUID filter (0 for all)",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -1702,13 +1918,17 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "attr_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Attribute handle to read value from"
+                                        "shortdesc": "Attribute handle to read value from",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -1720,19 +1940,25 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "attr_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Attribute handle to write new value to"
+                                        "shortdesc": "Attribute handle to write new value to",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "type",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Type of write to perform"
+                                        "shortdesc": "Type of write to perform",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "data",
@@ -1750,7 +1976,9 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     }
                                 ],
                                 "response_args": []
@@ -1762,7 +1990,9 @@
                                         "name": "flags",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "GATT client behavior flags"
+                                        "shortdesc": "GATT client behavior flags",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": []
@@ -1807,7 +2037,9 @@
                                         "name": "type",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Address type"
+                                        "shortdesc": "Address type",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": [
@@ -1826,31 +2058,41 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Security mode"
+                                        "shortdesc": "Security mode",
+                                        "minimum": 16,
+                                        "maximum": 35
                                     },
                                     {
                                         "name": "bonding",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Bonding"
+                                        "shortdesc": "Bonding",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "keysize",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Key size"
+                                        "shortdesc": "Key size",
+                                        "minimum": 7,
+                                        "maximum": 16
                                     },
                                     {
                                         "name": "pairprop",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pairing properties"
+                                        "shortdesc": "Pairing properties",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     }
                                 ],
                                 "response_args": []
@@ -1874,13 +2116,17 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "response",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Response"
+                                        "shortdesc": "Response",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -1892,13 +2138,17 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "passkey",
                                         "type": "uint32",
                                         "format": "hex",
-                                        "shortdesc": "Passkey value"
+                                        "shortdesc": "Passkey value",
+                                        "minimum": 0,
+                                        "maximum": 999999
                                     }
                                 ],
                                 "response_args": []
@@ -1910,7 +2160,9 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Handle of connection for which to set OOB data"
+                                        "shortdesc": "Handle of connection for which to set OOB data",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "key",
@@ -1928,7 +2180,9 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Handle of connection for which to set OOB data"
+                                        "shortdesc": "Handle of connection for which to set OOB data",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     }
                                 ],
                                 "response_args": []
@@ -1940,13 +2194,17 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Privacy mode"
+                                        "shortdesc": "Privacy mode",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Randomization interval (seconds)"
+                                        "shortdesc": "Randomization interval (seconds)",
+                                        "minimum": 1,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -1976,37 +2234,49 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Security mode"
+                                        "shortdesc": "Security mode",
+                                        "minimum": 16,
+                                        "maximum": 35
                                     },
                                     {
                                         "name": "bonding",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Bonding"
+                                        "shortdesc": "Bonding",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "keysize",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Key size"
+                                        "shortdesc": "Key size",
+                                        "minimum": 7,
+                                        "maximum": 16
                                     },
                                     {
                                         "name": "pairprop",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pairing properties"
+                                        "shortdesc": "Pairing properties",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "io",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "I/O capabilities"
+                                        "shortdesc": "I/O capabilities",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "flags",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Security behavior flags"
+                                        "shortdesc": "Security behavior flags",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     }
                                 ],
                                 "response_args": []
@@ -2060,7 +2330,9 @@
                                         "name": "passkey",
                                         "type": "uint32",
                                         "format": "hex",
-                                        "shortdesc": "Fixed passkey"
+                                        "shortdesc": "Fixed passkey",
+                                        "minimum": 0,
+                                        "maximum": 999999
                                     }
                                 ],
                                 "response_args": []
@@ -2087,37 +2359,49 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "remote",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Remote PSM"
+                                        "shortdesc": "Remote PSM",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "local",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Local PSM"
+                                        "shortdesc": "Local PSM",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "mtu",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "MTU"
+                                        "shortdesc": "MTU",
+                                        "minimum": 23,
+                                        "maximum": 512
                                     },
                                     {
                                         "name": "mps",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "MPS"
+                                        "shortdesc": "MPS",
+                                        "minimum": 23,
+                                        "maximum": 512
                                     },
                                     {
                                         "name": "credits",
                                         "type": "uint16",
                                         "format": "decimal",
-                                        "shortdesc": "Credits"
+                                        "shortdesc": "Credits",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -2129,7 +2413,9 @@
                                         "name": "channel",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Channel ID"
+                                        "shortdesc": "Channel ID",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -2141,13 +2427,17 @@
                                         "name": "channel",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Local PSM Channel ID"
+                                        "shortdesc": "Local PSM Channel ID",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "watermark",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Low credit watermark"
+                                        "shortdesc": "Low credit watermark",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -2159,37 +2449,49 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "channel",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Channel ID"
+                                        "shortdesc": "Channel ID",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "response",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Response"
+                                        "shortdesc": "Response",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "mtu",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "MTU"
+                                        "shortdesc": "MTU",
+                                        "minimum": 23,
+                                        "maximum": 512
                                     },
                                     {
                                         "name": "mps",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "MPS"
+                                        "shortdesc": "MPS",
+                                        "minimum": 23,
+                                        "maximum": 512
                                     },
                                     {
                                         "name": "credits",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Credits"
+                                        "shortdesc": "Credits",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -2201,13 +2503,17 @@
                                         "name": "channel",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Channel ID"
+                                        "shortdesc": "Channel ID",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "credits",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Credits"
+                                        "shortdesc": "Credits",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -2219,13 +2525,17 @@
                                         "name": "conn_handle",
                                         "type": "uint8",
                                         "format": "decimal",
-                                        "shortdesc": "Connection handle"
+                                        "shortdesc": "Connection handle",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "channel",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Channel ID"
+                                        "shortdesc": "Channel ID",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "data",
@@ -2246,7 +2556,9 @@
                                         "name": "port",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GPIO port"
+                                        "shortdesc": "GPIO port",
+                                        "minimum": 0,
+                                        "maximum": 5
                                     }
                                 ],
                                 "response_args": [
@@ -2265,13 +2577,17 @@
                                         "name": "channel",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "ADC channel"
+                                        "shortdesc": "ADC channel",
+                                        "minimum": 0,
+                                        "maximum": 0
                                     },
                                     {
                                         "name": "reference",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Reference"
+                                        "shortdesc": "Reference",
+                                        "minimum": 0,
+                                        "maximum": 0
                                     }
                                 ],
                                 "response_args": [
@@ -2296,25 +2612,33 @@
                                         "name": "port",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GPIO port"
+                                        "shortdesc": "GPIO port",
+                                        "minimum": 0,
+                                        "maximum": 5
                                     },
                                     {
                                         "name": "mask",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin selection mask (set bit to select pin for modification)"
+                                        "shortdesc": "Pin selection mask (set bit to select pin for modification)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "enable",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin function mask (set bit to enable, clear to disable)"
+                                        "shortdesc": "Pin function mask (set bit to enable, clear to disable)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "drive",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin function drive mode (set bit for strong drive, clear for 5.6k pull)"
+                                        "shortdesc": "Pin function drive mode (set bit for strong drive, clear for 5.6k pull)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     }
                                 ],
                                 "response_args": [
@@ -2333,7 +2657,9 @@
                                         "name": "port",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GPIO port"
+                                        "shortdesc": "GPIO port",
+                                        "minimum": 0,
+                                        "maximum": 5
                                     }
                                 ],
                                 "response_args": [
@@ -2358,37 +2684,49 @@
                                         "name": "port",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GPIO port"
+                                        "shortdesc": "GPIO port",
+                                        "minimum": 0,
+                                        "maximum": 5
                                     },
                                     {
                                         "name": "mask",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin selection mask (set bit to select pin for modification)"
+                                        "shortdesc": "Pin selection mask (set bit to select pin for modification)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "direction",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin digital direction mask (set bit for output, clear for input)"
+                                        "shortdesc": "Pin digital direction mask (set bit for output, clear for input)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "pulldrive_down",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin digital pull-down/drive-low mask (set bit to enable pull-down/drive-low, clear to disable)"
+                                        "shortdesc": "Pin digital pull-down/drive-low mask (set bit to enable pull-down/drive-low, clear to disable)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "pulldrive_up",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin digital pull-up/drive-high mask (set bit to enable pull-up/drive-high, clear to disable)"
+                                        "shortdesc": "Pin digital pull-up/drive-high mask (set bit to enable pull-up/drive-high, clear to disable)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "analog",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin analog mode mask (set bit to enable analog hi-Z input mode, clear for digital settings)"
+                                        "shortdesc": "Pin analog mode mask (set bit to enable analog hi-Z input mode, clear for digital settings)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     }
                                 ],
                                 "response_args": [
@@ -2407,7 +2745,9 @@
                                         "name": "port",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GPIO port"
+                                        "shortdesc": "GPIO port",
+                                        "minimum": 0,
+                                        "maximum": 5
                                     }
                                 ],
                                 "response_args": [
@@ -2444,19 +2784,25 @@
                                         "name": "port",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GPIO port"
+                                        "shortdesc": "GPIO port",
+                                        "minimum": 0,
+                                        "maximum": 5
                                     },
                                     {
                                         "name": "mask",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin selection mask (set bit to select pin for modification)"
+                                        "shortdesc": "Pin selection mask (set bit to select pin for modification)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "logic",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin logic mask (set bit for high, clear for low)"
+                                        "shortdesc": "Pin logic mask (set bit for high, clear for low)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     }
                                 ],
                                 "response_args": [
@@ -2475,7 +2821,9 @@
                                         "name": "port",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GPIO port"
+                                        "shortdesc": "GPIO port",
+                                        "minimum": 0,
+                                        "maximum": 5
                                     }
                                 ],
                                 "response_args": [
@@ -2494,25 +2842,33 @@
                                         "name": "port",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GPIO port"
+                                        "shortdesc": "GPIO port",
+                                        "minimum": 0,
+                                        "maximum": 5
                                     },
                                     {
                                         "name": "mask",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Pin selection mask (set bit to select pin for modification)"
+                                        "shortdesc": "Pin selection mask (set bit to select pin for modification)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "rising",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Enable rising-edge interrupts (set bit to enable, clear to disable)"
+                                        "shortdesc": "Enable rising-edge interrupts (set bit to enable, clear to disable)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "falling",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Enable falling-edge interrupts (set bit to enable, clear to disable)"
+                                        "shortdesc": "Enable falling-edge interrupts (set bit to enable, clear to disable)",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     }
                                 ],
                                 "response_args": [
@@ -2531,7 +2887,9 @@
                                         "name": "port",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GPIO port"
+                                        "shortdesc": "GPIO port",
+                                        "minimum": 0,
+                                        "maximum": 5
                                     }
                                 ],
                                 "response_args": [
@@ -2556,37 +2914,49 @@
                                         "name": "channel",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Channel number"
+                                        "shortdesc": "Channel number",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "enable",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Enable PWM output (zero to disable, non-zero to enable)"
+                                        "shortdesc": "Enable PWM output (zero to disable, non-zero to enable)",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "divider",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Clock divider value"
+                                        "shortdesc": "Clock divider value",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "prescaler",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "PWM prescaler value"
+                                        "shortdesc": "PWM prescaler value",
+                                        "minimum": 0,
+                                        "maximum": 7
                                     },
                                     {
                                         "name": "period",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Period"
+                                        "shortdesc": "Period",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "compare",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Compare"
+                                        "shortdesc": "Compare",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -2598,7 +2968,9 @@
                                         "name": "channel",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Channel number"
+                                        "shortdesc": "Channel number",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     }
                                 ],
                                 "response_args": [
@@ -2654,55 +3026,73 @@
                                         "name": "enable",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Enable CYSPP support (override 'disabled' with CYSPP pin)"
+                                        "shortdesc": "Enable CYSPP support (override 'disabled' with CYSPP pin)",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "role",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "GAP role to use (override with CP_ROLE pin)"
+                                        "shortdesc": "GAP role to use (override with CP_ROLE pin)",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "company",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Company ID value in advertisement packet"
+                                        "shortdesc": "Company ID value in advertisement packet",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "local_key",
                                         "type": "uint32",
                                         "format": "hex",
-                                        "shortdesc": "Local connection key to present while advertising (peripheral role)"
+                                        "shortdesc": "Local connection key to present while advertising (peripheral role)",
+                                        "minimum": 0,
+                                        "maximum": 4294967295
                                     },
                                     {
                                         "name": "remote_key",
                                         "type": "uint32",
                                         "format": "hex",
-                                        "shortdesc": "Remote connection key to search for while scanning (central role)"
+                                        "shortdesc": "Remote connection key to search for while scanning (central role)",
+                                        "minimum": 0,
+                                        "maximum": 4294967295
                                     },
                                     {
                                         "name": "remote_mask",
                                         "type": "uint32",
                                         "format": "hex",
-                                        "shortdesc": "Bitmask for bits in remote key which must match for a connection"
+                                        "shortdesc": "Bitmask for bits in remote key which must match for a connection",
+                                        "minimum": 0,
+                                        "maximum": 4294967295
                                     },
                                     {
                                         "name": "sleep_level",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Sleep behavior while connected with open CYSPP data pipe"
+                                        "shortdesc": "Sleep behavior while connected with open CYSPP data pipe",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "server_security",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "CYSPP server security requirement"
+                                        "shortdesc": "CYSPP server security requirement",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "client_flags",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Client GATT usage flags when operating CYSPP in the central role"
+                                        "shortdesc": "Client GATT usage flags when operating CYSPP in the central role",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     }
                                 ],
                                 "response_args": []
@@ -2774,25 +3164,33 @@
                                         "name": "data_value_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Data characteristic value handle"
+                                        "shortdesc": "Data characteristic value handle",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "data_cccd_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Data characteristic configuration handle"
+                                        "shortdesc": "Data characteristic configuration handle",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "rxflow_value_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "RX flow characteristic value handle"
+                                        "shortdesc": "RX flow characteristic value handle",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "rxflow_cccd_handle",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "RX flow characteristic configuration handle"
+                                        "shortdesc": "RX flow characteristic configuration handle",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     }
                                 ],
                                 "response_args": []
@@ -2834,25 +3232,33 @@
                                         "name": "mode",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Packetization mode"
+                                        "shortdesc": "Packetization mode",
+                                        "minimum": 0,
+                                        "maximum": 4
                                     },
                                     {
                                         "name": "wait",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Anticipation delay (milliseconds)"
+                                        "shortdesc": "Anticipation delay (milliseconds)",
+                                        "minimum": 1,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "length",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Fixed/anticipated packet length"
+                                        "shortdesc": "Fixed/anticipated packet length",
+                                        "minimum": 1,
+                                        "maximum": 128
                                     },
                                     {
                                         "name": "eop",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "End-of-packet byte"
+                                        "shortdesc": "End-of-packet byte",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     }
                                 ],
                                 "response_args": []
@@ -2897,37 +3303,49 @@
                                         "name": "enable",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Enable CYCommand support"
+                                        "shortdesc": "Enable CYCommand support",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "hostout",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Host output while CYCommand data channel is active"
+                                        "shortdesc": "Host output while CYCommand data channel is active",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "timeout",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Access timeout after boot"
+                                        "shortdesc": "Access timeout after boot",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "safemode",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Enforce safe mode (no remote lockout)"
+                                        "shortdesc": "Enforce safe mode (no remote lockout)",
+                                        "minimum": 0,
+                                        "maximum": 1
                                     },
                                     {
                                         "name": "challenge",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "CYCommand challenge type"
+                                        "shortdesc": "CYCommand challenge type",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "security",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "CYCommand security requirement"
+                                        "shortdesc": "CYCommand security requirement",
+                                        "minimum": 0,
+                                        "maximum": 3
                                     },
                                     {
                                         "name": "secret",
@@ -2996,31 +3414,41 @@
                                         "name": "enable",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Enable iBeacon broadcasting"
+                                        "shortdesc": "Enable iBeacon broadcasting",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Advertisement interval for iBeacon broadcasting"
+                                        "shortdesc": "Advertisement interval for iBeacon broadcasting",
+                                        "minimum": 160,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "company",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Company ID value in broadcast packet"
+                                        "shortdesc": "Company ID value in broadcast packet",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "major",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "iBeacon 16-bit major value"
+                                        "shortdesc": "iBeacon 16-bit major value",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "minor",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "iBeacon 16-bit minor value"
+                                        "shortdesc": "iBeacon 16-bit minor value",
+                                        "minimum": 0,
+                                        "maximum": 65535
                                     },
                                     {
                                         "name": "uuid",
@@ -3083,19 +3511,25 @@
                                         "name": "enable",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Enable Eddystone broadcasting"
+                                        "shortdesc": "Enable Eddystone broadcasting",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     },
                                     {
                                         "name": "interval",
                                         "type": "uint16",
                                         "format": "hex",
-                                        "shortdesc": "Advertisement interval for Eddystone broadcasting"
+                                        "shortdesc": "Advertisement interval for Eddystone broadcasting",
+                                        "minimum": 160,
+                                        "maximum": 16384
                                     },
                                     {
                                         "name": "type",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Eddystone frame type"
+                                        "shortdesc": "Eddystone frame type",
+                                        "minimum": 0,
+                                        "maximum": 255
                                     },
                                     {
                                         "name": "data",
@@ -3812,7 +4246,9 @@
                                         "name": "keysize",
                                         "type": "uint8",
                                         "format": "hex",
-                                        "shortdesc": "Key size"
+                                        "shortdesc": "Key size",
+                                        "minimum": 7,
+                                        "maximum": 16
                                     },
                                     {
                                         "name": "pairprop",
