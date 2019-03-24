@@ -85,9 +85,65 @@
                         },
                         "txpower": {
                         },
-                        "@": {
+                        "link_command": {
+                            "shortdesc": "Command @ can be used to read send commands to a dedicated profile parser like Hands-Free Profile's AT-command parser.",
+                            "command_args": [
+                                {
+                                    "name": "link_id",
+                                    "type": "uint8",
+                                    "shortdesc": "Numeric connection identifier"
+                                },
+                                {
+                                    "name": "command",
+                                    "type": "uint8a-greedy",
+                                    "shortdesc": "Command to send to parser"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "pskey_query": {
+                            "shortdesc": "Command &{pskey}? can be used to read the value of any PSKEY stored in the module persistent store.",
+                            "command_args": [
+                                {
+                                    "name": "pskey",
+                                    "type": "uint16",
+                                    "shortdesc": "PSKEY to read in hexadecimal format"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "pskey",
+                                    "type": "uint16",
+                                    "shortdesc": "PSKEY to read in hexadecimal format"
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "uint8a-greedy",
+                                    "shortdesc": "Value of the PSKEY in hexadecimal format"
+                                }
+                            ]
                         },
                         "aio": {
+                            "shortdesc": "Command AIO can be used to read the value of ADC converters. WT12 does not have any AIO pins, WT32i has AIO0 and AIO1, all other modules have AIO1.",
+                            "command_args": [
+                                {
+                                    "name": "source",
+                                    "type": "uint8",
+                                    "shortdesc": "Source AIO to read"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "source",
+                                    "type": "uint8",
+                                    "shortdesc": "Source AIO to read"
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "uint8a-greedy",
+                                    "shortdesc": "Value of the AIO in hexadecimal format"
+                                }
+                            ]
                         },
                         "a2dp": {
                         },
