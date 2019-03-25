@@ -101,7 +101,7 @@
                             "command_args": [
                                 {
                                     "name": "bd_addr",
-                                    "type": "mac_addr",
+                                    "type": "macaddr",
                                     "shortdesc": "Bluetooth device address of the remote device in format xx:xx:xx:xx:xx:xx where x is hexadecimal digit"
                                 },
                                 {
@@ -126,14 +126,61 @@
                                     "required": false,
                                     "shortdesc": "PDU parameters, if any"
                                 }
-                            ]
+                            ],
+                            "response_args": []
                         },
                         "battery": {
                             "shortdesc": "Command BATTERY is used to read the current voltage of the module battery. The command works only with WT32i.",
                             "command_args": [],
                             "response_args": []
                         },
+                        "bcsp_enable": {
+                            "shortdesc": "Command BCSP_ENABLE is used to boot the device and enter BCSP mode; it is an alias for BOOT 1. See the documentation of BOOT command for a detailed explanation of iWRAP boot modes.",
+                            "command_args": [],
+                            "response_args": []
+                        },
                         "ber": {
+                            "shortdesc": "The BER command returns the Bit Error Rate of the given link ID.",
+                            "command_args": [
+                                {
+                                    "name": "link_id",
+                                    "type": "uint16",
+                                    "shortdesc": "Numeric connection identifier"
+                                }
+                            ],
+                            "response_args": [
+                                {
+                                    "name": "bd_addr",
+                                    "type": "macaddr",
+                                    "shortdesc": "Bluetooth address of the remote device in format xx:xx:xx:xx:xx:xx where x is hexadecimal digit"
+                                },
+                                {
+                                    "name": "ber",
+                                    "type": "uint8a-greedy",
+                                    "shortdesc": "Average Bit Error Rate on the link (as percentage). Possible values are from 0.0000 to 100.0000. Bluetooth specification allows a BER up to 0.1%."
+                                }
+                            ]
+                        },
+                        "blink": {
+                            "shortdesc": "BLINK command allow generation of periodic square wave which can be used for example for driving a LED. The timings are not complitely accurate and some jitter may occur.",
+                            "command_args": [
+                                {
+                                    "name": "pio_mask",
+                                    "type": "uint16",
+                                    "shortdesc": "Hexadecimal Pio mask for IOs that BLINK command should control."
+                                },
+                                {
+                                    "name": "off_time",
+                                    "type": "uint16",
+                                    "shortdesc": "Defines how long time the IO stays low per period. Unit is ms."
+                                },
+                                {
+                                    "name": "on_time",
+                                    "type": "uint16",
+                                    "shortdesc": "Defines how long time the IO stays high per period. Unit is ms."
+                                }
+                            ],
+                            "response_args": []
                         },
                         "call": {
                         },
@@ -192,10 +239,6 @@
                         "txpower": {
                         },
                         "a2dp": {
-                        },
-                        "bcsp_enable": {
-                        },
-                        "blink": {
                         },
                         "boot": {
                         },
