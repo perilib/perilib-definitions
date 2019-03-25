@@ -21,70 +21,6 @@
                     "token_out": "cmd",
                     "token_in": "rsp",
                     "entities": {
-                        "aptx": {
-                        },
-                        "aptxll": {
-                        },
-                        "auth": {
-                        },
-                        "ber": {
-                        },
-                        "call": {
-                        },
-                        "clock": {
-                        },
-                        "close": {
-                        },
-                        "connauth": {
-                        },
-                        "connect": {
-                        },
-                        "cvc": {
-                        },
-                        "echo": {
-                        },
-                        "i2c": {
-                        },
-                        "ic": {
-                        },
-                        "ident": {
-                        },
-                        "inquiry": {
-                        },
-                        "kill": {
-                        },
-                        "l2cap": {
-                        },
-                        "list": {
-                        },
-                        "loopback": {
-                        },
-                        "name": {
-                        },
-                        "pair": {
-                        },
-                        "ping": {
-                        },
-                        "rfcomm": {
-                        },
-                        "rssi": {
-                        },
-                        "sco_enable": {
-                        },
-                        "sco_open": {
-                        },
-                        "sdp": {
-                        },
-                        "sdp_add": {
-                        },
-                        "select": {
-                        },
-                        "test": {
-                        },
-                        "testmode": {
-                        },
-                        "txpower": {
-                        },
                         "link_command": {
                             "shortdesc": "Command @ can be used to read send commands to a dedicated profile parser like Hands-Free Profile's AT-command parser.",
                             "command_args": [
@@ -145,11 +81,117 @@
                                 }
                             ]
                         },
-                        "a2dp": {
-                        },
                         "at": {
+                            "shortdesc": "Command AT, \"attention\", can be used to check that iWRAP is functional and in command mode.",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "aptx": {
+                            "shortdesc": "APTX command can be used to check if an aptX license key is installed or not. This command works only in iWRAP 6.0.0 and newer firmware builds which have the aptX codec installed.",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "aptxll": {
+                            "shortdesc": "APTXLL command can be used to check if an aptX Low Latency license key is installed or not. This command works only in iWRAP 6.1.0 and newer firmware builds which have the aptX Low Latency codec installed.",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "auth": {
+                            "shortdesc": "AUTH command can be used to reply to AUTH event to perform interactive pairing. AUTH event is only displayed if SET CONTROL CONFIG bit 11 is set.",
+                            "command_args": [
+                                {
+                                    "name": "bd_addr",
+                                    "type": "mac_addr",
+                                    "shortdesc": "Bluetooth device address of the remote device in format xx:xx:xx:xx:xx:xx where x is hexadecimal digit"
+                                },
+                                {
+                                    "name": "pin_code",
+                                    "type": "uint16",
+                                    "shortdesc": "Bluetooth pin code"
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "avrcp_pdu": {
+                            "shortdesc": "AVRCP PDU command is used by the AVRCP Controller to send metadata request Protocol Data Units to the Target.",
+                            "command_args": [
+                                {
+                                    "name": "pdu_id",
+                                    "type": "uint16",
+                                    "shortdesc": "PDU ID to send"
+                                },
+                                {
+                                    "name": "parameters",
+                                    "type": "uint8a-greedy",
+                                    "required": false,
+                                    "shortdesc": "PDU parameters, if any"
+                                }
+                            ]
                         },
                         "battery": {
+                            "shortdesc": "Command BATTERY is used to read the current voltage of the module battery. The command works only with WT32i.",
+                            "command_args": [],
+                            "response_args": []
+                        },
+                        "ber": {
+                        },
+                        "call": {
+                        },
+                        "clock": {
+                        },
+                        "close": {
+                        },
+                        "connauth": {
+                        },
+                        "connect": {
+                        },
+                        "cvc": {
+                        },
+                        "echo": {
+                        },
+                        "i2c": {
+                        },
+                        "ic": {
+                        },
+                        "ident": {
+                        },
+                        "inquiry": {
+                        },
+                        "kill": {
+                        },
+                        "l2cap": {
+                        },
+                        "list": {
+                        },
+                        "loopback": {
+                        },
+                        "name": {
+                        },
+                        "pair": {
+                        },
+                        "ping": {
+                        },
+                        "rfcomm": {
+                        },
+                        "rssi": {
+                        },
+                        "sco_enable": {
+                        },
+                        "sco_open": {
+                        },
+                        "sdp": {
+                        },
+                        "sdp_add": {
+                        },
+                        "select": {
+                        },
+                        "test": {
+                        },
+                        "testmode": {
+                        },
+                        "txpower": {
+                        },
+                        "a2dp": {
                         },
                         "bcsp_enable": {
                         },
