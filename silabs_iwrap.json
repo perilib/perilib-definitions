@@ -167,7 +167,7 @@
                                 {
                                     "name": "pio_mask",
                                     "type": "uint16",
-                                    "shortdesc": "Hexadecimal Pio mask for IOs that BLINK command should control."
+                                    "shortdesc": "Hexadecimal PIO mask for IOs that BLINK command should control."
                                 },
                                 {
                                     "name": "off_time",
@@ -178,6 +178,17 @@
                                     "name": "on_time",
                                     "type": "uint16",
                                     "shortdesc": "Defines how long time the IO stays high per period. Unit is ms."
+                                }
+                            ],
+                            "response_args": []
+                        },
+                        "boot": {
+                            "shortdesc": "The BOOT command is used to temporarily restart the module so that it will operate in one of the HCI modes. After issuing this command, the module will immediately enter the selected HCI mode. After a reset, the module will boot in iWRAP mode again. The boot mode change can be made permanent by writing the boot mode to PS-key: \"Initial device bootmode\".",
+                            "command_args": [
+                                {
+                                    "name": "boot_mode",
+                                    "type": "uint8",
+                                    "shortdesc": "Mode to boot into"
                                 }
                             ],
                             "response_args": []
@@ -239,8 +250,6 @@
                         "txpower": {
                         },
                         "a2dp": {
-                        },
-                        "boot": {
                         },
                         "bypassuart": {
                         },
