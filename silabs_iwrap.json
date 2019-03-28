@@ -123,7 +123,7 @@
                                 {
                                     "name": "parameters",
                                     "type": "uint8a-greedy",
-                                    "required": false,
+                                    "optional": true,
                                     "shortdesc": "PDU parameters, if any"
                                 }
                             ],
@@ -187,13 +187,80 @@
                             "command_args": [
                                 {
                                     "name": "boot_mode",
-                                    "type": "uint8",
+                                    "type": "uint16",
                                     "shortdesc": "Mode to boot into"
                                 }
                             ],
                             "response_args": []
                         },
                         "call": {
+                            "shortdesc": "The CALL command is used to initiate Bluetooth connections to the remote devices. Connections are closed by using command CLOSE. Currently open connections can be viewed by using command LIST.",
+                            "command_args": [
+                                {
+                                    "name": "address",
+                                    "type": "macaddr",
+                                    "shortdesc": "DESC"
+                                },
+                                {
+                                    "name": "target",
+                                    "type": "uint8a-word",
+                                    "shortdesc": "DESC"
+                                },
+                                {
+                                    "name": "connect_mode",
+                                    "type": "uint8a-word",
+                                    "shortdesc": "DESC"
+                                },
+                                {
+                                    "name": "mtu",
+                                    "type": "uint16",
+                                    "shortdesc": "DESC",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "channel",
+                                    "type": "uint16",
+                                    "shortdesc": "DESC",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "flow_mode",
+                                    "type": "uint16",
+                                    "shortdesc": "DESC",
+                                    "optional_group": 1
+                                },
+                                {
+                                    "name": "tx_win",
+                                    "type": "uint16",
+                                    "shortdesc": "DESC",
+                                    "optional_group": 1
+                                },
+                                {
+                                    "name": "max_retx",
+                                    "type": "uint16",
+                                    "shortdesc": "DESC",
+                                    "optional_group": 1
+                                },
+                                {
+                                    "name": "retx_timeout",
+                                    "type": "uint16",
+                                    "shortdesc": "DESC",
+                                    "optional_group": 1
+                                },
+                                {
+                                    "name": "mon_timeout",
+                                    "type": "uint16",
+                                    "shortdesc": "DESC",
+                                    "optional_group": 1
+                                },
+                                {
+                                    "name": "max_pdu",
+                                    "type": "uint16",
+                                    "shortdesc": "DESC",
+                                    "optional_group": 1
+                                }
+                            ],
+                            "response_args": []
                         },
                         "clock": {
                         },
