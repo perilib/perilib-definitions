@@ -199,68 +199,76 @@
                                 {
                                     "name": "address",
                                     "type": "macaddr",
-                                    "shortdesc": "DESC"
+                                    "shortdesc": "Bluetooth address of the remote device in format xx:xx:xx:xx:xx:xx where x is hexadecimal digit"
                                 },
                                 {
                                     "name": "target",
                                     "type": "uint8a-word",
-                                    "shortdesc": "DESC"
+                                    "shortdesc": "RFCOMM, HFP or HFP-AG, HID or A2DP target for the connection"
                                 },
                                 {
                                     "name": "connect_mode",
                                     "type": "uint8a-word",
-                                    "shortdesc": "DESC"
+                                    "shortdesc": "Defines the connection mode to be established"
                                 },
                                 {
                                     "name": "mtu",
                                     "type": "uint16",
-                                    "shortdesc": "DESC",
+                                    "shortdesc": "Payload size to use in bytes. Range: 21 to 1009.",
                                     "optional": true
                                 },
                                 {
                                     "name": "channel",
                                     "type": "uint16",
-                                    "shortdesc": "DESC",
+                                    "shortdesc": "Local RFCOMM channel in hexadecimal format",
+                                    "base": 16,
                                     "optional": true
                                 },
                                 {
                                     "name": "flow_mode",
                                     "type": "uint16",
-                                    "shortdesc": "DESC",
+                                    "shortdesc": "Flow control mode in hexadecimal format",
+                                    "base": 16,
                                     "optional_group": 1
                                 },
                                 {
                                     "name": "tx_win",
                                     "type": "uint16",
-                                    "shortdesc": "DESC",
+                                    "shortdesc": "Size of transmit window",
                                     "optional_group": 1
                                 },
                                 {
                                     "name": "max_retx",
                                     "type": "uint16",
-                                    "shortdesc": "DESC",
+                                    "shortdesc": "Maximum number of retransmissions",
                                     "optional_group": 1
                                 },
                                 {
                                     "name": "retx_timeout",
                                     "type": "uint16",
-                                    "shortdesc": "DESC",
+                                    "shortdesc": "Retransmission timeout, in ms",
                                     "optional_group": 1
                                 },
                                 {
                                     "name": "mon_timeout",
                                     "type": "uint16",
-                                    "shortdesc": "DESC",
+                                    "shortdesc": "Monitor timeout, in ms",
                                     "optional_group": 1
                                 },
                                 {
                                     "name": "max_pdu",
                                     "type": "uint16",
-                                    "shortdesc": "DESC",
+                                    "shortdesc": "Maximum PDU size",
                                     "optional_group": 1
                                 }
                             ],
-                            "response_args": []
+                            "response_args": [
+                                {
+                                    "name": "link_id",
+                                    "type": "uint8",
+                                    "shortdesc": "Numeric connection identifier"
+                                }
+                            ]
                         },
                         "clock": {
                         },
