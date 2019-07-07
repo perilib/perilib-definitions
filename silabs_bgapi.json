@@ -42,6 +42,7 @@
             "type": "stream",
             "format": "binary",
             "token": "ble",
+            "sdk": "1.7.0-142",
             "header": [
                 {
                     "name": "message_type",
@@ -2850,6 +2851,7 @@
             "type": "stream",
             "format": "binary",
             "token": "gecko",
+            "sdk": "2.11.1.241",
             "header": [
                 {
                     "name": "message_type",
@@ -6960,6 +6962,7 @@
             "type": "stream",
             "format": "binary",
             "token": "dumo",
+            "sdk": "1.2.0-208",
             "header": [
                 {
                     "name": "message_type",
@@ -11505,6 +11508,7 @@
             "type": "stream",
             "format": "binary",
             "token": "wifi",
+            "sdk": "1.4.1-91",
             "header": [
                 {
                     "name": "message_type",
@@ -14449,6 +14453,7 @@
             "type": "stream",
             "format": "binary",
             "token": "wifi",
+            "sdk": "1.1.1",
             "header": [
                 {
                     "name": "message_type",
