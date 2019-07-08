@@ -2851,7 +2851,7 @@
             "type": "stream",
             "format": "binary",
             "token": "gecko",
-            "sdk": "2.11.1.241",
+            "sdk": "2.12.0.69",
             "header": [
                 {
                     "name": "message_type",
@@ -3098,46 +3098,8 @@
                                     }
                                 ]
                             },
-                            "16": {
-                                "name": "read_rsp_buffer",
-                                "command_args": [
-                                    {
-                                        "name": "length",
-                                        "type": "uint8"
-                                    }
-                                ],
-                                "response_args": [
-                                    {
-                                        "name": "result",
-                                        "type": "uint16"
-                                    },
-                                    {
-                                        "name": "data",
-                                        "type": "uint8array"
-                                    }
-                                ]
-                            },
-                            "17": {
-                                "name": "read_evt_buffer",
-                                "command_args": [
-                                    {
-                                        "name": "length",
-                                        "type": "uint8"
-                                    }
-                                ],
-                                "response_args": [
-                                    {
-                                        "name": "result",
-                                        "type": "uint16"
-                                    },
-                                    {
-                                        "name": "data",
-                                        "type": "uint8array"
-                                    }
-                                ]
-                            },
                             "18": {
-                                "name": "write_cmd_buffer",
+                                "name": "data_buffer_write",
                                 "command_args": [
                                     {
                                         "name": "data",
@@ -3163,6 +3125,16 @@
                                         "type": "uint8"
                                     }
                                 ],
+                                "response_args": [
+                                    {
+                                        "name": "result",
+                                        "type": "uint16"
+                                    }
+                                ]
+                            },
+                            "20": {
+                                "name": "data_buffer_clear",
+                                "command_args": [],
                                 "response_args": [
                                     {
                                         "name": "result",
@@ -3817,12 +3789,66 @@
                                     }
                                 ]
                             },
+                            "32": {
+                                "name": "set_long_advertising_data",
+                                "command_args": [
+                                    {
+                                        "name": "handle",
+                                        "type": "uint8"
+                                    },
+                                    {
+                                        "name": "packet_type",
+                                        "type": "uint8"
+                                    }
+                                ],
+                                "response_args": [
+                                    {
+                                        "name": "result",
+                                        "type": "uint16"
+                                    }
+                                ]
+                            },
                             "33": {
                                 "name": "enable_whitelisting",
                                 "command_args": [
                                     {
                                         "name": "enable",
                                         "type": "uint8"
+                                    }
+                                ],
+                                "response_args": [
+                                    {
+                                        "name": "result",
+                                        "type": "uint16"
+                                    }
+                                ]
+                            },
+                            "34": {
+                                "name": "set_conn_timing_parameters",
+                                "command_args": [
+                                    {
+                                        "name": "min_interval",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "max_interval",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "latency",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "timeout",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "min_ce_length",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "max_ce_length",
+                                        "type": "uint16"
                                     }
                                 ],
                                 "response_args": [
@@ -3978,6 +4004,45 @@
                                     {
                                         "name": "connection",
                                         "type": "uint8"
+                                    }
+                                ],
+                                "response_args": [
+                                    {
+                                        "name": "result",
+                                        "type": "uint16"
+                                    }
+                                ]
+                            },
+                            "5": {
+                                "name": "set_timing_parameters",
+                                "command_args": [
+                                    {
+                                        "name": "connection",
+                                        "type": "uint8"
+                                    },
+                                    {
+                                        "name": "min_interval",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "max_interval",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "latency",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "timeout",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "min_ce_length",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "max_ce_length",
+                                        "type": "uint16"
                                     }
                                 ],
                                 "response_args": [
@@ -4639,6 +4704,25 @@
                                         "type": "uint16"
                                     }
                                 ]
+                            },
+                            "10": {
+                                "name": "set_max_mtu",
+                                "command_args": [
+                                    {
+                                        "name": "max_mtu",
+                                        "type": "uint16"
+                                    }
+                                ],
+                                "response_args": [
+                                    {
+                                        "name": "result",
+                                        "type": "uint16"
+                                    },
+                                    {
+                                        "name": "max_mtu",
+                                        "type": "uint16"
+                                    }
+                                ]
                             }
                         },
                         "12": {
@@ -5124,6 +5208,21 @@
                                     },
                                     {
                                         "name": "address_type",
+                                        "type": "uint8"
+                                    }
+                                ],
+                                "response_args": [
+                                    {
+                                        "name": "result",
+                                        "type": "uint16"
+                                    }
+                                ]
+                            },
+                            "20": {
+                                "name": "set_minimum_key_size",
+                                "command_args": [
+                                    {
+                                        "name": "minimum_key_size",
                                         "type": "uint8"
                                     }
                                 ],
@@ -5833,6 +5932,36 @@
                                     }
                                 ]
                             }
+                        },
+                        "254": {
+                            "name": "qualtester",
+                            "0": {
+                                "name": "configure",
+                                "command_args": [
+                                    {
+                                        "name": "group",
+                                        "type": "uint32"
+                                    },
+                                    {
+                                        "name": "id",
+                                        "type": "uint32"
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "uint32"
+                                    },
+                                    {
+                                        "name": "data",
+                                        "type": "uint8array"
+                                    }
+                                ],
+                                "response_args": [
+                                    {
+                                        "name": "result",
+                                        "type": "uint16"
+                                    }
+                                ]
+                            }
                         }
                     }
                 },
@@ -6043,6 +6172,19 @@
                                     {
                                         "name": "data",
                                         "type": "uint8array"
+                                    }
+                                ]
+                            },
+                            "5": {
+                                "name": "periodic_advertising_status",
+                                "event_args": [
+                                    {
+                                        "name": "sid",
+                                        "type": "uint8"
+                                    },
+                                    {
+                                        "name": "status",
+                                        "type": "uint32"
                                     }
                                 ]
                             }
@@ -6946,6 +7088,30 @@
                             "0": {
                                 "name": "message_to_host",
                                 "event_args": [
+                                    {
+                                        "name": "data",
+                                        "type": "uint8array"
+                                    }
+                                ]
+                            }
+                        },
+                        "254": {
+                            "name": "qualtester",
+                            "0": {
+                                "name": "state_changed",
+                                "event_args": [
+                                    {
+                                        "name": "group",
+                                        "type": "uint32"
+                                    },
+                                    {
+                                        "name": "id",
+                                        "type": "uint32"
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "uint32"
+                                    },
                                     {
                                         "name": "data",
                                         "type": "uint8array"
