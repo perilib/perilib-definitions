@@ -36,6 +36,26 @@
             "url": "https://www.silabs.com/documents/login/reference-manuals/wgm110-api-rm.pdf"
         }
     ],
+    "devices": {
+        "ble1xx": {
+            "protocol": "silabs-bgapi-ble1xx",
+            "transport": "uart",
+            "connections": {
+                "reset": {
+                    "asserted_mode": "output",
+                    "asserted_state": "low",
+                    "deasserted_mode": "input",
+                    "deasserted_state": "high"
+                },
+                "wake": {
+                    "asserted_mode": "output",
+                    "asserted_state": "user",
+                    "deasserted_mode": "output",
+                    "deasserted_state": "user"
+                }
+            }
+        }
+    },
     "protocols": {
         "silabs-bgapi-ble1xx": {
             "name": "Bluegiga Bluetooth Low Energy (BLE1xx series)",
