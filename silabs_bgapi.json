@@ -3,7 +3,7 @@
         "ble1xx": {
             "protocol": "silabs-bgapi-ble1xx",
             "transport": "uart",
-            "connections": {
+            "gpio": {
                 "reset": {
                     "asserted_mode": "output",
                     "asserted_state": "low",
