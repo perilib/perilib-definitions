@@ -6,15 +6,22 @@
             "part_numbers": [ "ble112", "ble113", "ble113-m256k", "ble121lr-m256k" ],
             "gpio": {
                 "reset": {
+                    "type": "input",
                     "asserted_mode": "output",
                     "asserted_state": "low",
                     "deasserted_mode": "input",
                     "deasserted_state": "high"
                 },
                 "wake": {
+                    "type": "input",
                     "asserted_mode": "output",
                     "asserted_state": "user",
                     "deasserted_mode": "output",
+                    "deasserted_state": "user"
+                }
+                "host_wake": {
+                    "type": "output",
+                    "asserted_state": "user",
                     "deasserted_state": "user"
                 }
             }
