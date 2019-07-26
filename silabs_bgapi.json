@@ -18,7 +18,7 @@
                     "asserted_state": "user",
                     "deasserted_mode": "output",
                     "deasserted_state": "user"
-                }
+                },
                 "host_wake": {
                     "type": "output",
                     "asserted_state": "user",
