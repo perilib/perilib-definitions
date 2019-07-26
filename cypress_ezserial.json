@@ -1,26 +1,55 @@
 {
-    "documents": [
-        {
-            "type": "reference",
-            "name": "EZ-Serial Firmware Platform",
-            "version": "1.1.14",
-            "date": "2019-03-08",
-            "url": "https://www.cypress.com/documentation/software-and-drivers/ez-serial-ez-ble-module-firmware-platform"
-        },
-        {
-            "type": "reference",
-            "name": "EZ-Serial Firmware Platform User Guide",
-            "version": "*E",
-            "date": "2018-12-18",
-            "url": "https://www.cypress.com/file/384521/download"
+    "devices": {
+        "ble1xx": {
+            "protocol": "cypress-ezserial",
+            "transport": "uart",
+            "part_numbers": [ "cyble-212019-00" ],
+            "gpio": {
+                "reset": {
+                    "type": "input",
+                    "asserted_mode": "output",
+                    "asserted_state": "low",
+                    "deasserted_mode": "input",
+                    "deasserted_state": "high"
+                },
+                "lp_mode": {
+                    "type": "input",
+                    "asserted_mode": "output",
+                    "asserted_state": "low",
+                    "deasserted_mode": "output",
+                    "deasserted_state": "high"
+                },
+                "data_ready": {
+                    "type": "output",
+                    "asserted_state": "low",
+                    "deasserted_state": "high"
+                }
+            }
         }
-    ],
+    },
     "protocols": {
         "cypress-ezserial": {
             "name": "Cypress EZ-Serial BLE",
             "type": "stream",
             "format": "binary",
             "token": "ezs",
+            "sdk": "1.1.1",
+            "documents": [
+                {
+                    "type": "reference",
+                    "name": "EZ-Serial Firmware Platform",
+                    "version": "1.1.14",
+                    "date": "2019-03-08",
+                    "url": "https://www.cypress.com/documentation/software-and-drivers/ez-serial-ez-ble-module-firmware-platform"
+                },
+                {
+                    "type": "reference",
+                    "name": "EZ-Serial Firmware Platform User Guide",
+                    "version": "*E",
+                    "date": "2018-12-18",
+                    "url": "https://www.cypress.com/file/384521/download"
+                }
+            ],
             "header": [
                 {
                     "name": "message_type",
